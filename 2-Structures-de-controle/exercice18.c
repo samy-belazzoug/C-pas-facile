@@ -2,7 +2,6 @@
 //18. Lire un mois (1-12) et afficher son nombre de jours.
 int main() {
 
-
 int mois = 2;
 switch (mois) 
     {
