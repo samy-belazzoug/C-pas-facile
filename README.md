@@ -107,4 +107,3 @@
 88. Simuler un OS rudimentaire.
 89. Créer un réseau neuronal basique.
 90. Développer un compilateur complet en C.
-
