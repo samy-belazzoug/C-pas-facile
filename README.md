@@ -30,7 +30,7 @@
 
 21. Créer une fonction qui retourne le carré d’un nombre.
 22. Implémenter la factorielle en mode récursif.
-23. Trouver le PGCD et le PPCM de deux nombres.
+23. Trouver le PGCD et le PPCM de deux nombres. (ALGORITHME D'EUCLIDE)
 24. Vérifier si un nombre est premier.
 25. Implémenter Fibonacci récursif et itératif.
 26. Trouver le plus grand élément d’un tableau avec une fonction.
