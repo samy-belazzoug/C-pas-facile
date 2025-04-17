@@ -16,7 +16,6 @@ int palindrome(char n[],int length) {
 
     //On procède à l'inversion de la chaîne.
     for (int i = 0; i < length; i++) {
-        printf("n[%d] = %c\n", (length-1)-i, n[(length-1)-i]);
         inverse[(length-1)-i] = n[i];
     }
 
