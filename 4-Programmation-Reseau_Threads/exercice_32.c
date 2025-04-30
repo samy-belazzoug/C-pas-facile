@@ -2,7 +2,7 @@
 #include <winsock2.h>
 #include <stdio.h>
 #pragma comment(lib,"ws2_32.lib")
-#define DEFAULT_PORT "2000"
+#define DEFAULT_PORT "80"
 
 /*Créer un socket TCP côté client
 Connecter un client à google.com sur le port 80 (sans rien envoyer).*/
@@ -28,7 +28,7 @@ int main() {
     hints.ai_protocol = IPPROTO_TCP; //Protocol : TCP/IP
     
     //Resolve the server address and port
-    iResult = getaddrinfo("127.0.0.1",DEFAULT_PORT,&hints, &result);
+    iResult = getaddrinfo("google.com",DEFAULT_PORT,&hints, &result);
     if (iResult != 0) {
         printf("getaddrinfo failed : %d",iResult);
         WSACleanup();
@@ -43,12 +43,19 @@ int main() {
 
     if (ConnectSocket == INVALID_SOCKET) {
         printf("Error at socket() : %ld",WSAGetLastError());
-    freeaddrinfo(result);
-    closesocket(ConnectSocket);
-    WSACleanup;
-    return 1;
     }
 
-    
-    printf("Winsock initialized successfully !");
+    if (connect(ConnectSocket, ptr->ai_addr,(int)ptr->ai_addrlen) == SOCKET_ERROR) {
+        printf("Connection failed : %d",WSAGetLastError());
+        closesocket(ConnectSocket);
+        ConnectSocket = INVALID_SOCKET;
+        WSACleanup();
+    } 
+
+    printf("Successfully connected to Google!");
+        
+    freeaddrinfo(result);
+    closesocket(ConnectSocket);
+    WSACleanup();
+    return 1;
 }
